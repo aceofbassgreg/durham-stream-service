@@ -30,7 +30,7 @@ module RTPEventService
     # @entry.save || raise InvalidEntry
     post '/submit' do
       @entry = Entry.new(params[:entry])
-      @entry.save || raise InvalidEntry
+      @entry.save || (raise InvalidEntry)
     rescue InvalidEntry
       puts "Entry was not formatted properly!"
       status 422
