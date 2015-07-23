@@ -29,7 +29,7 @@ module RTPEventService
 
 
     # @entry.save || raise InvalidEntry
-    post '/submit' do
+    post '/entries' do
       begin
         content_type :json
         params = JSON.parse(request.env["rack.input"].read)
