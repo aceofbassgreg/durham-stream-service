@@ -1,10 +1,16 @@
 require 'rubygems'
 require 'bundler'
+require 'sinatra'
+require 'sinatra/activerecord'
+require './config/environments'
+require './app/models/entry'
 
 Bundler.require
 
 module RTPEventService
   class App < Sinatra::Application
+    
+    register Sinatra::ActiveRecordExtension
     # configure do
     #   disable :method_override
     #   disable :static
@@ -18,6 +24,5 @@ module RTPEventService
 
     # use Rack::Deflater
 
-    run!
   end
 end
