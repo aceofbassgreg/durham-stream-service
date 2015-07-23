@@ -4,6 +4,7 @@ require 'sinatra'
 require 'sinatra/activerecord'
 require './config/environments'
 require './app/models/entry'
+require 'json'
 
 Bundler.require
 
@@ -29,11 +30,15 @@ module RTPEventService
 
     # @entry.save || raise InvalidEntry
     post '/submit' do
-      @entry = Entry.new(params[:entry])
-      @entry.save || (raise InvalidEntry)
-    rescue InvalidEntry
-      puts "Entry was not formatted properly!"
-      status 422
+      begin
+        content_type :json
+        params = JSON.parse(request.env["rack.input"].read)
+        @entry = Entry.new(params)
+        @entry.save || (raise InvalidEntry)
+      rescue InvalidEntry
+        puts "Entry was not formatted properly!"
+        status 422
+      end
     end
 
   end
