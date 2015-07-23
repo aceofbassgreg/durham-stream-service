@@ -2,5 +2,6 @@
 
 require 'pry'
 require 'sinatra/activerecord'
+load './app/models/entry.rb'
 
 Pry.start
