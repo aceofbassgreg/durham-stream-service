@@ -41,5 +41,9 @@ module RTPEventService
       end
     end
 
+    get '/entries' do
+      Entry.all.to_json
+    end
+
   end
 end
