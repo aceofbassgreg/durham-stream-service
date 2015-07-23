@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20150723150920) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "entry", force: :cascade do |t|
+  create_table "entries", force: :cascade do |t|
     t.string "text_to_display"
     t.date   "text_created_at"
     t.string "tags"

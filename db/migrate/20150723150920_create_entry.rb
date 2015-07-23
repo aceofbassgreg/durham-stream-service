@@ -1,6 +1,6 @@
 class CreateEntry < ActiveRecord::Migration
   def change
-    create_table :entry do |t|
+    create_table :entries do |t|
       t.string :text_to_display
       t.date   :text_created_at    
       t.string :tags      
