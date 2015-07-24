@@ -1,3 +1,3 @@
 require './app'
 
-run RTPEventService::App
+run DurhamStreamService::App

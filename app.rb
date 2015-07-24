@@ -10,7 +10,7 @@ Bundler.require
 
 class InvalidEntry < StandardError; end
 
-module RTPEventService
+module DurhamStreamService
   class App < Sinatra::Application
 
     register Sinatra::ActiveRecordExtension
