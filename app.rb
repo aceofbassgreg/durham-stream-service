@@ -20,8 +20,13 @@ module DurhamStreamService
         content_type :json
         params = JSON.parse(request.env["rack.input"].read)
         @entry = Entry.new(params)
-        @entry.save || (raise InvalidEntry)
-      rescue InvalidEntry
+        @entry.save! 
+      rescue ActiveRecord::RecordInvalid => ex
+        if ex.message == "Validation failed: Md5 has already been taken"
+          puts "Duplicate entry! Skipping"
+          return 201
+        end
+      rescue 
         puts "Entry was not formatted properly!"
         status 422
       end
