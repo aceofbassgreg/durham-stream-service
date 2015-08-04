@@ -23,5 +23,5 @@ e.save
 `
 
 TO DO:
-* rescue `ActiveRecord::UnknownAttributeError` in POST endpoint
-* only write to db if data is unique, otherwise return 201
+* Add tests
+* Install Capistrano & prepare for deploying
